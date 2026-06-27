@@ -76,7 +76,7 @@ Projeto desenvolvido por:
 - José Arthur
 - José Davi
 
-Sob orientação do professor **Ítalo Carlo Lopes Silva**. :contentReference[oaicite:4]{index=4}
+Sob orientação do professor **Ítalo Carlo Lopes Silva**.
 
 ---
 
