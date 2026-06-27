@@ -80,6 +80,32 @@ Sob orientação do professor **Ítalo Carlo Lopes Silva**. :contentReference[oa
 
 ---
 
-## 📄 Observação
+## 📚 Documentação
+
+Além dos arquivos presentes neste repositório, a documentação completa do projeto pode ser consultada no Google Docs:
+
+- 📄 **Documentação do Projeto:**  
+  https://docs.google.com/document/d/1f8-IdnyLFe3sQY9h9nc-pTh2IvJltN9FTqX6pDv6U3U/edit?tab=t.0
+
+---
+
+## 📄 Observações
 
 Este repositório foi desenvolvido exclusivamente para fins acadêmicos, como atividade da disciplina **Tópicos Avançados em Banco de Dados**, utilizando o dataset público disponibilizado pela Olist.
+
+### Estratégia de Deploy e Contingência de Infraestrutura
+
+O projeto foi desenvolvido seguindo os requisitos arquiteturais propostos na atividade. Durante aproximadamente **70% do ciclo de desenvolvimento**, foi utilizado o dataset bruto original da Olist para a modelagem dimensional (**Star Schema**) e para a implementação do pipeline de ETL no **Apache Hop**. Nessa etapa foram construídas as **pipelines (`.hpl`)** e **workflows (`.hwf`)** responsáveis pela extração, tratamento, transformação dos dados e geração das **Surrogate Keys**, conforme especificado no projeto.
+
+Na fase final de carga (**Load**) para o banco PostgreSQL hospedado no **Supabase**, foram encontradas limitações relacionadas ao plano gratuito da plataforma (**Free Tier**), principalmente em função da latência de rede e de restrições de *timeout* durante inserções massivas utilizando o componente **Table Output** do Apache Hop. Essas limitações impediram a conclusão da carga da tabela fato diretamente pelo pipeline.
+
+Para garantir a entrega completa do projeto sem comprometer seus objetivos acadêmicos, foi adotada uma estratégia de contingência. Foi criada uma nova estrutura no Supabase utilizando uma abordagem **ELT**, na qual uma versão previamente refinada do dataset foi carregada para o banco de dados, enquanto as junções dimensionais finais passaram a ser realizadas na camada semântica do **Preset.io**, por meio de **Virtual Datasets** desenvolvidos no **SQL Lab**.
+
+Essa estratégia preservou todos os objetivos de aprendizagem da atividade, permitindo demonstrar:
+
+- Modelagem dimensional completa do Data Warehouse;
+- Desenvolvimento do pipeline de ETL utilizando Apache Hop;
+- Implementação da arquitetura em nuvem;
+- Construção dos dashboards e análises de negócio no Preset.io.
+
+Dessa forma, todos os artefatos produzidos ao longo do desenvolvimento permanecem documentados neste repositório e representam fielmente as etapas executadas pelo grupo.
